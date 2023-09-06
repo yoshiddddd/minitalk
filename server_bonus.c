@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 12:27:01 by yoshidakazu       #+#    #+#             */
-/*   Updated: 2023/09/06 17:54:23 by kyoshida         ###   ########.fr       */
+/*   Created: 2023/09/06 18:20:26 by kyoshida          #+#    #+#             */
+/*   Updated: 2023/09/06 18:21:49 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 volatile sig_atomic_t	g_char = 0;
 
@@ -43,7 +43,7 @@ void	exit_error(char *str)
 
 int	main(void)
 {
-	struct sigaction	sig;
+	struct sigaction sig;
 
 	printf("PID : %d\n", getpid());
 	sig.sa_sigaction = signal_handler;
