@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:27:01 by yoshidakazu       #+#    #+#             */
-/*   Updated: 2023/09/02 19:21:50 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:12:36 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	signal_handler(int signum, siginfo_t *info, void *dummy)
 	if (signum == SIGUSR1)
 		g_char |= 1;
 	else if (signum == SIGUSR2)
-		;
+		g_char |= 0;
 	i++;
 	c = 0xff & g_char;
 	if (i == 8)
 	{
-		write(STDOUT_FILENO, &c, 1);
+		write(1, &c, 1);
 		i = 0;
 	}
 }
@@ -47,21 +47,23 @@ void	exit_error(char *str)
 
 int	main(void)
 {
-	struct sigaction	act1;
-	struct sigaction	act2;
+	struct sigaction	sa1;
+	struct sigaction	sa2;
 
 	printf("PID : %d\n", getpid());
-	memset(&act1, 0, sizeof(sigaction));
-	memset(&act2, 0, sizeof(sigaction));
-	act1.sa_sigaction = signal_handler;
-	act2.sa_sigaction = signal_handler;
-	act1.sa_flags = SA_SIGINFO;
-	act2.sa_flags = SA_SIGINFO;
-	sigaddset(&act1.sa_mask, SIGUSR2);
-	sigaddset(&act2.sa_mask, SIGUSR1);
-	if (sigaction(SIGUSR1, &act1, NULL) != 0)
+	// memset(&sa1, 0, sizeof(sigaction));
+	// memset(&sa2, 0, sizeof(sigaction));
+	sa1.sa_handler = signal_handler;
+	sa2.sa_handler = signal_handler;
+	sigemptyset(&sa1.sa_mask);	
+	sigemptyset(&sa2.sa_mask);
+	// sa1.sa_sigaction = signal_handler;
+	// sa2.sa_sigaction = signal_handler;
+	// sigaddset(&sa1.sa_mask, SIGUSR2);
+	// sigaddset(&sa2.sa_mask, SIGUSR1);
+	if (sigaction(SIGUSR1, &sa1, NULL) != 0)
 		exit_error("sigaction error");
-	if (sigaction(SIGUSR2, &act2, NULL) != 0)
+	if (sigaction(SIGUSR2, &sa2, NULL) != 0)
 		exit_error("sigaction error");
 	while (1)
 		pause();
