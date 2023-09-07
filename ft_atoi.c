@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:14:50 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/09/06 18:18:52 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/09/07 10:46:38 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static int	ft_parsenumber(const char *str, int flag)
 		if ((num > LONG_MAX / 10 && flag == 1) || (num == LONG_MAX / 10 && (*str
 					+ 1) - '0' > LONG_MAX % 10 && flag == 1))
 		{
-			write(1, "Error\nPID is ", 6);
+			write(1, "Error\nover [LONG_MAX]", 21);
 			exit(EXIT_FAILURE);
 		}
 		else if ((num > LONG_MAX / 10 && flag == -1) || (num == LONG_MAX / 10
 				&& (*str + 1) - '0' > (LONG_MIN % 10) * -1 && flag == -1))
 		{
-			write(1, "Error\n", 6);
+			write(1, "Error\nover [LONG_MAX]", 21);
 			exit(EXIT_FAILURE);
 		}
 		num = num * 10 + (*str - '0');
