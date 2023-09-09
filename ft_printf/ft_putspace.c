@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putspace.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
+/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 16:50:37 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/09/09 10:36:33 by yoshidakazu      ###   ########.fr       */
+/*   Created: 2023/06/16 12:06:17 by kyoshida          #+#    #+#             */
+/*   Updated: 2023/06/21 16:05:33 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "ft_printf.h"
 
-# include <signal.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
+int	ft_putspace(int len)
+{
+	int	count;
 
-
-long	ft_atoi_m(const char *str);
-#endif
+	count = 0;
+	while (len > 0)
+	{
+		count += ft_putchar(' ');
+		len--;
+	}
+	return (count);
+}

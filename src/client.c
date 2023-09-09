@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
+/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:35:54 by yoshidakazu       #+#    #+#             */
-/*   Updated: 2023/09/09 10:36:45 by yoshidakazu      ###   ########.fr       */
+/*   Updated: 2023/09/09 18:06:37 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../inc/minitalk.h"
 
 void	send_char(int pid, char c)
 {
@@ -24,7 +24,7 @@ void	send_char(int pid, char c)
 		else
 			kill(pid, SIGUSR2);
 		bit--;
-		usleep(200);
+		usleep(600);
 	}
 }
 
@@ -43,8 +43,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		printf("Error\n");
-		printf("Try again ./client [PID] [SEND_MSG]\n");
+		ft_printf("Error\n");
+		ft_printf("Try again ./client [PID] [SEND_MSG]\n");
 		return (1);
 	}
 	pid = ft_atoi_m(argv[1]);

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
+/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:20:14 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/09/09 10:36:51 by yoshidakazu      ###   ########.fr       */
+/*   Updated: 2023/09/09 18:06:47 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk_bonus.h"
+#include "../inc/minitalk_bonus.h"
 
 void	send_char(int pid, char c)
 {
@@ -24,7 +24,7 @@ void	send_char(int pid, char c)
 		else
 			kill(pid, SIGUSR2);
 		bit--;
-		usleep(250);
+		usleep(600);
 	}
 }
 
@@ -37,21 +37,21 @@ void	send_str(const pid_t pid, char *str)
 	}
 }
 
-void receive(int signal)
+void	receive(int signal)
 {
 	(void)signal;
-	printf("received!\n");
+	ft_printf("received!\n");
 }
 
 int	main(int argc, char **argv)
 {
 	long	pid;
 
-	signal(SIGUSR1,receive);
+	signal(SIGUSR1, receive);
 	if (argc != 3)
 	{
-		printf("Error\n");
-		printf("Try again ./client [PID] [SEND_MSG]\n");
+		ft_printf("Error\n");
+		ft_printf("Try again ./client [PID] [SEND_MSG]\n");
 		return (1);
 	}
 	pid = ft_atoi_m(argv[1]);
