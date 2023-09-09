@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:20:26 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/09/06 18:21:49 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/09/08 12:21:43 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	signal_handler(int signum, siginfo_t *info, void *dummy)
 	{
 		write(1, &c, 1);
 		i = 0;
+		kill(info->si_pid, SIGUSR1);
 	}
 }
 
@@ -41,10 +42,13 @@ void	exit_error(char *str)
 	exit(1);
 }
 
-int	main(void)
+int	main(int argc , char **argv)
 {
 	struct sigaction sig;
 
+	(void)argv;
+	if(argc != 1)
+		exit_error("argc Error\nTry again ./server\n");
 	printf("PID : %d\n", getpid());
 	sig.sa_sigaction = signal_handler;
 	sigemptyset(&sig.sa_mask);

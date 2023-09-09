@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:20:14 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/09/06 18:21:37 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/09/08 12:08:17 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,17 @@ void	send_str(const pid_t pid, char *str)
 	}
 }
 
+void receive(int signal)
+{
+	(void)signal;
+	printf("received!\n");
+}
+
 int	main(int argc, char **argv)
 {
 	long	pid;
 
+	signal(SIGUSR1,receive);
 	if (argc != 3)
 	{
 		printf("Error\n");

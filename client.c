@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:35:54 by yoshidakazu       #+#    #+#             */
-/*   Updated: 2023/09/06 18:20:36 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:45:08 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	send_char(int pid, char c)
 		else
 			kill(pid, SIGUSR2);
 		bit--;
-		usleep(250);
+		usleep(200);
 	}
 }
 
