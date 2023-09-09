@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:50:37 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/09/06 17:54:10 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/09/09 10:36:33 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@
 # include <limits.h>
 
 
-long	ft_atoi(const char *str);
+long	ft_atoi_m(const char *str);
 #endif

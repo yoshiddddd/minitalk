@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_m.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:14:50 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/09/07 10:46:38 by yoshidakazu      ###   ########.fr       */
+/*   Updated: 2023/09/09 10:37:02 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_parsenumber(const char *str, int flag)
 	return ((int)num);
 }
 
-long	ft_atoi(const char *str)
+long	ft_atoi_m(const char *str)
 {
 	int	flag;
 	long	num;

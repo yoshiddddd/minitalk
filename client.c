@@ -6,7 +6,7 @@
 /*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:35:54 by yoshidakazu       #+#    #+#             */
-/*   Updated: 2023/09/08 11:45:08 by yoshidakazu      ###   ########.fr       */
+/*   Updated: 2023/09/09 10:36:45 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 		printf("Try again ./client [PID] [SEND_MSG]\n");
 		return (1);
 	}
-	pid = ft_atoi(argv[1]);
+	pid = ft_atoi_m(argv[1]);
 	send_str(pid, argv[2]);
 	send_char(pid, '\n');
 }
