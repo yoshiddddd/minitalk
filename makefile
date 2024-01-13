@@ -6,6 +6,7 @@ LIBDIR = lib
 FT_PRINTF_PATH = ./ft_printf
 FT_PRINTF_LIB = $(FT_PRINTF_PATH)/libftprintf.a
 
+
 CLIENT_SRC = $(SRCDIR)/client.c $(SRCDIR)/ft_atoi_m.c
 SERVER_SRC = $(SRCDIR)/server.c
 
@@ -28,6 +29,7 @@ SERVER_BONUS = server_bonus
 all: $(CLIENT) $(SERVER) $(FT_PRINTF_LIB)
 
 bonus: $(CLIENT_BONUS) $(SERVER_BONUS) $(FT_PRINTF_LIB)
+
 
 $(FT_PRINTF_LIB):	
 	$(MAKE) -C $(FT_PRINTF_PATH)
