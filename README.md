@@ -16,7 +16,7 @@
 client側で送信した[send_msg]がserver側で表示されます。  
 
 ## Features
-client側ではkill関数を使用し、`SIGUSR1`,`SIGUSR2`シグナルを使用し、`[send_msg]`を1bitずつserver側に送信します。  
+client側ではkill関数、`SIGUSR1`,`SIGUSR2`シグナルを使用し、`[send_msg]`を1bitずつserver側に送信します。  
 | シグナル名 | 対応bit |
 |:---:|:---:|
 | SIGUSR1 | 1 |
@@ -25,7 +25,7 @@ client側ではkill関数を使用し、`SIGUSR1`,`SIGUSR2`シグナルを使用
 
 server側ではclientから送られてきたシグナルに対してsigaction関数を使用して0か1かを判定し、8bit溜まり次第標準出力へ出力します。  
 この一連の流れを繰り返します。  
-`[send_msg]`はマルチバイトにも対応しており、unicodeにも対応しています。要するに日本語や絵文字なども送信可能です。
+`[send_msg]`はマルチバイトにも対応しており、unicodeにも対応しています。日本語や絵文字なども送信可能です。
 
 #### 以下の行為はエラーを返します
 - client側でPIDをlong_max以上指定した時
